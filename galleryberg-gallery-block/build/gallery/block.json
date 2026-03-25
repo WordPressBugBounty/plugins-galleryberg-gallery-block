@@ -1,0 +1,181 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "galleryberg/gallery",
+  "title": "Galleryberg Gallery",
+  "category": "widgets",
+  "description": "A customizable gallery block for displaying images in columns with optional cropping and spacing.",
+  "attributes": {
+    "columns": {
+      "type": "number",
+      "default": 3
+    },
+    "mobileColumns": {
+      "type": "number"
+    },
+    "tabletColumns": {
+      "type": "number"
+    },
+    "cropImages": {
+      "type": "boolean",
+      "default": true
+    },
+    "blockSpacing": {
+      "type": "object",
+      "default": {
+        "top": "16px",
+        "left": "16px",
+        "right": "16px",
+        "bottom": "16px"
+      }
+    },
+    "isGapSeparated": {
+      "type": "boolean",
+      "default": false
+    },
+    "images": {
+      "type": "array",
+      "default": []
+    },
+    "lightbox": {
+      "type": "boolean",
+      "default": false
+    },
+    "openEffect": {
+      "type": "string",
+      "default": "zoom"
+    },
+    "closeEffect": {
+      "type": "string",
+      "default": "zoom"
+    },
+    "slideEffect": {
+      "type": "string",
+      "default": "slide"
+    },
+    "keyboardNavigation": {
+      "type": "boolean",
+      "default": true
+    },
+    "loop": {
+      "type": "boolean",
+      "default": true
+    },
+    "zoomable": {
+      "type": "boolean",
+      "default": true
+    },
+    "draggable": {
+      "type": "boolean",
+      "default": true
+    },
+    "layout": {
+      "type": "string",
+      "default": "tiles"
+    },
+    "justifiedRowHeight": {
+      "type": "number",
+      "default": 180
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": null
+    },
+    "backgroundGradient": {
+      "type": "string",
+      "default": null
+    },
+    "padding": {
+      "type": "object",
+      "default": {}
+    },
+    "margin": {
+      "type": "object",
+      "default": {}
+    },
+    "border": {
+      "type": "object",
+      "default": {}
+    },
+    "borderRadius": {
+      "type": "object",
+      "default": {}
+    },
+    "imagesBorderRadius": {
+      "type": "object",
+      "default": {}
+    },
+    "galleryCaptionType": {
+      "type": "string",
+      "default": "full-overlay"
+    },
+    "galleryCaptionVisibility": {
+      "type": "string",
+      "default": "always"
+    },
+    "galleryCaptionAlignment": {
+      "type": "string",
+      "default": "bottom center"
+    },
+    "galleryCaptionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "galleryCaptionBackgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "galleryCaptionBackgroundGradient": {
+      "type": "string",
+      "default": "linear-gradient(0deg,rgb(0,0,0) 0%,rgba(0,0,0,0) 100%)"
+    },
+    "enableHoverEffect": {
+      "type": "boolean",
+      "default": false
+    },
+    "hoverEffect": {
+      "type": "string",
+      "default": "zoom-in"
+    },
+    "showCaptions": {
+      "type": "boolean",
+      "default": true
+    },
+    "showLightboxCaptions": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": true
+  },
+  "providesContext": {
+    "galleryberg/enableLazyLoading": "enableLazyLoading",
+    "layout": "layout",
+    "justifiedRowHeight": "justifiedRowHeight",
+    "blockSpacing": "blockSpacing",
+    "imagesBorderRadius": "imagesBorderRadius",
+    "galleryCaptionType": "galleryCaptionType",
+    "galleryCaptionVisibility": "galleryCaptionVisibility",
+    "galleryCaptionAlignment": "galleryCaptionAlignment",
+    "galleryCaptionColor": "galleryCaptionColor",
+    "galleryCaptionBackgroundColor": "galleryCaptionBackgroundColor",
+    "galleryCaptionBackgroundGradient": "galleryCaptionBackgroundGradient",
+    "enableHoverEffect": "enableHoverEffect",
+    "hoverEffect": "hoverEffect",
+    "showCaptions": "showCaptions"
+  },
+  "textdomain": "galleryberg-gallery-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewStyle": [
+    "galleryberg-lightbox"
+  ],
+  "render": "file:./render.php",
+  "viewScript": [
+    "file:./view.js",
+    "galleryberg-lightbox"
+  ]
+}

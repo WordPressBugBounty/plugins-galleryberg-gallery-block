@@ -1,0 +1,151 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "version": "0.0.3",
+  "title": "Image",
+  "name": "galleryberg/image",
+  "category": "design",
+  "parent": [
+    "galleryberg/gallery"
+  ],
+  "description": "A customizable image block for displaying images with optional cropping, spacing, and alignment.",
+  "attributes": {
+    "media": {
+      "type": "object",
+      "default": {}
+    },
+    "height": {
+      "type": "string",
+      "default": ""
+    },
+    "width": {
+      "type": "string",
+      "default": ""
+    },
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "alt": {
+      "type": "string",
+      "default": ""
+    },
+    "aspectRatio": {
+      "type": "string",
+      "default": ""
+    },
+    "scale": {
+      "type": "string",
+      "default": ""
+    },
+    "sizeSlug": {
+      "type": "string",
+      "default": "large"
+    },
+    "caption": {
+      "type": "string",
+      "default": ""
+    },
+    "showCaption": {
+      "type": "boolean",
+      "default": false
+    },
+    "captionType": {
+      "type": "string",
+      "default": ""
+    },
+    "captionVisibility": {
+      "type": "string",
+      "default": ""
+    },
+    "captionAlignment": {
+      "type": "string",
+      "default": ""
+    },
+    "captionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "captionBackgroundColor": {
+      "type": "string",
+      "default": null
+    },
+    "captionBackgroundGradient": {
+      "type": "string",
+      "default": null
+    },
+    "href": {
+      "type": "string",
+      "default": ""
+    },
+    "linkClass": {
+      "type": "string",
+      "default": ""
+    },
+    "linkDestination": {
+      "type": "string",
+      "default": ""
+    },
+    "rel": {
+      "type": "string",
+      "default": ""
+    },
+    "linkTarget": {
+      "type": "string",
+      "default": ""
+    },
+    "border": {
+      "type": "object",
+      "default": {}
+    },
+    "borderRadius": {
+      "type": "object",
+      "default": {}
+    },
+    "isExample": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "color": {
+      "text": false,
+      "background": false
+    },
+    "filter": {
+      "duotone": true
+    },
+    "selectors": {
+      "filter": {
+        "duotone": ".wp-block-galleryberg-image img, .wp-block-galleryberg-image .components-placeholder"
+      }
+    }
+  },
+  "example": {
+    "attributes": {
+      "isExample": true
+    }
+  },
+  "usesContext": [
+    "galleryberg/enableLazyLoading",
+    "justifiedRowHeight",
+    "layout",
+    "blockSpacing",
+    "imagesBorderRadius",
+    "galleryCaptionType",
+    "galleryCaptionVisibility",
+    "galleryCaptionAlignment",
+    "galleryCaptionColor",
+    "galleryCaptionBackgroundColor",
+    "galleryCaptionBackgroundGradient",
+    "enableHoverEffect",
+    "hoverEffect",
+    "showCaptions"
+  ],
+  "textdomain": "galleryberg-gallery-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
