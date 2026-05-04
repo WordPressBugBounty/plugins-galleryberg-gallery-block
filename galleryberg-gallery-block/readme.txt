@@ -2,7 +2,7 @@
 Contributors:      imtiazrayhan, dotcamp, farhanshafi
 Tags:              block, gallery, gutenberg, images, lightbox
 Tested up to:      6.9
-Stable tag:        1.1.3
+Stable tag:        1.1.4
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 6.0
@@ -156,6 +156,14 @@ Yes, the plugin generates semantic HTML with appropriate classes that you can ta
 7. Block settings panel showing customization options
 
 == Changelog ==
+
+= 1.1.4 =
+
+* FIX: Caption background clearing when switching to Below Image type
+* NEW: Preview images added to upsell modal
+* NEW: One-click promo code copy button in upsell modals
+* IMPROVE: Settings tab now uses panel body component
+* IMPROVE: Removed early bird deal from upsell panels
 
 = 1.1.3 =
 
