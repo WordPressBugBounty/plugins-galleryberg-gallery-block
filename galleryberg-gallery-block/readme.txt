@@ -2,7 +2,7 @@
 Contributors:      imtiazrayhan, dotcamp, farhanshafi
 Tags:              block, gallery, gutenberg, images, lightbox
 Tested up to:      6.9
-Stable tag:        1.1.4
+Stable tag:        1.1.6
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 6.0
@@ -157,8 +157,20 @@ Yes, the plugin generates semantic HTML with appropriate classes that you can ta
 
 == Changelog ==
 
+= 1.1.6 =
+
+* NEW: Caption typography controls for gallery and image blocks
+* IMPROVE: WordPress 7.0 compatibility
+
+= 1.1.5 =
+
+* NEW: Focal point picker for gallery images
+* NEW: Theme color picker for gallery images
+* IMPROVE: Removed upsell panel
+
 = 1.1.4 =
 
+* FIX: Justified gallery row height not applying correctly on the frontend
 * FIX: Caption background clearing when switching to Below Image type
 * NEW: Preview images added to upsell modal
 * NEW: One-click promo code copy button in upsell modals

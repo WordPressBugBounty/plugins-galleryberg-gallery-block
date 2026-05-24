@@ -144,6 +144,30 @@
     "showLightboxCaptions": {
       "type": "boolean",
       "default": false
+    },
+    "galleryCaptionFontSize": {
+      "type": "string",
+      "default": ""
+    },
+    "galleryCaptionFontAppearance": {
+      "type": "object",
+      "default": {}
+    },
+    "galleryCaptionLineHeight": {
+      "type": "string",
+      "default": ""
+    },
+    "galleryCaptionLetterSpacing": {
+      "type": "string",
+      "default": ""
+    },
+    "galleryCaptionTextDecoration": {
+      "type": "string",
+      "default": ""
+    },
+    "galleryCaptionTextTransform": {
+      "type": "string",
+      "default": ""
     }
   },
   "supports": {
@@ -164,7 +188,13 @@
     "galleryCaptionBackgroundGradient": "galleryCaptionBackgroundGradient",
     "enableHoverEffect": "enableHoverEffect",
     "hoverEffect": "hoverEffect",
-    "showCaptions": "showCaptions"
+    "showCaptions": "showCaptions",
+    "galleryCaptionFontSize": "galleryCaptionFontSize",
+    "galleryCaptionFontAppearance": "galleryCaptionFontAppearance",
+    "galleryCaptionLineHeight": "galleryCaptionLineHeight",
+    "galleryCaptionLetterSpacing": "galleryCaptionLetterSpacing",
+    "galleryCaptionTextDecoration": "galleryCaptionTextDecoration",
+    "galleryCaptionTextTransform": "galleryCaptionTextTransform"
   },
   "textdomain": "galleryberg-gallery-block",
   "editorScript": "file:./index.js",

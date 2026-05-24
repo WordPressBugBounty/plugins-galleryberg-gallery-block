@@ -36,6 +36,16 @@ $caption_color      = ! empty( $attributes['captionColor'] ) ? $attributes['capt
 $caption_bg_color   = ! empty( $attributes['captionBackgroundColor'] ) ? $attributes['captionBackgroundColor'] : ( $context['galleryCaptionBackgroundColor'] ?? '' );
 $caption_bg_gradient = ! empty( $attributes['captionBackgroundGradient'] ) ? $attributes['captionBackgroundGradient'] : ( $context['galleryCaptionBackgroundGradient'] ?? '' );
 
+// Typography
+$caption_font_size        = ! empty( $attributes['captionFontSize'] ) ? $attributes['captionFontSize'] : ( $context['galleryCaptionFontSize'] ?? '' );
+$caption_font_appearance  = ! empty( $attributes['captionFontAppearance'] ) ? $attributes['captionFontAppearance'] : ( $context['galleryCaptionFontAppearance'] ?? array() );
+$caption_font_style       = $caption_font_appearance['fontStyle'] ?? '';
+$caption_font_weight      = $caption_font_appearance['fontWeight'] ?? '';
+$caption_line_height      = ! empty( $attributes['captionLineHeight'] ) ? $attributes['captionLineHeight'] : ( $context['galleryCaptionLineHeight'] ?? '' );
+$caption_letter_spacing   = ! empty( $attributes['captionLetterSpacing'] ) ? $attributes['captionLetterSpacing'] : ( $context['galleryCaptionLetterSpacing'] ?? '' );
+$caption_text_decoration  = ! empty( $attributes['captionTextDecoration'] ) ? $attributes['captionTextDecoration'] : ( $context['galleryCaptionTextDecoration'] ?? '' );
+$caption_text_transform   = ! empty( $attributes['captionTextTransform'] ) ? $attributes['captionTextTransform'] : ( $context['galleryCaptionTextTransform'] ?? '' );
+
 $has_href         = ! empty( $href );
 $img_src          = $url ? esc_url( $url ) : '';
 $link_class_attr  = $link_class ? 'class="' . esc_attr( $link_class ) . '"' : '';
@@ -58,6 +68,27 @@ if ( $caption_color ) {
 }
 if ( $caption_bg_style ) {
 	$caption_styles['background'] = $caption_bg_style;
+}
+if ( $caption_font_size ) {
+	$caption_styles['font-size'] = esc_attr( $caption_font_size );
+}
+if ( $caption_font_style ) {
+	$caption_styles['font-style'] = esc_attr( $caption_font_style );
+}
+if ( $caption_font_weight ) {
+	$caption_styles['font-weight'] = esc_attr( $caption_font_weight );
+}
+if ( $caption_line_height ) {
+	$caption_styles['line-height'] = esc_attr( $caption_line_height );
+}
+if ( $caption_letter_spacing ) {
+	$caption_styles['letter-spacing'] = esc_attr( $caption_letter_spacing );
+}
+if ( $caption_text_decoration ) {
+	$caption_styles['text-decoration'] = esc_attr( $caption_text_decoration );
+}
+if ( $caption_text_transform ) {
+	$caption_styles['text-transform'] = esc_attr( $caption_text_transform );
 }
 
 $caption_style_attr = ! empty( $caption_styles ) ? 'style="' . \Galleryberg\Helpers\Styling_Helpers::generate_css_string( $caption_styles ) . '"' : '';
@@ -88,6 +119,9 @@ $id                 = isset( $media['id'] ) ? $media['id'] : '';
 
 $aspect_ratio  = ! empty( $attributes['aspectRatio'] ) ? esc_attr( $attributes['aspectRatio'] ) : '';
 $scale         = ! empty( $attributes['scale'] ) ? esc_attr( $attributes['scale'] ) : '';
+$focal_point   = isset( $attributes['focalPoint'] ) ? $attributes['focalPoint'] : array( 'x' => 0.5, 'y' => 0.5 );
+$focal_x       = isset( $focal_point['x'] ) ? round( floatval( $focal_point['x'] ) * 100, 2 ) : 50;
+$focal_y       = isset( $focal_point['y'] ) ? round( floatval( $focal_point['y'] ) * 100, 2 ) : 50;
 $width         = isset( $attributes['width'] ) ? intval( $attributes['width'] ) : '';
 $height        = isset( $attributes['height'] ) ? intval( $attributes['height'] ) : '';
 $border        = $attributes['border'] ?? array();
@@ -103,6 +137,7 @@ $style = array(
 	'border-bottom-right-radius' => isset( $effective_border_radius['bottomRight'] ) ? $effective_border_radius['bottomRight'] : '',
 	'aspect-ratio'               => $aspect_ratio ? $aspect_ratio : '',
 	'object-fit'                 => $scale ? $scale : '',
+	'object-position'            => "{$focal_x}% {$focal_y}%",
 	'width'                      => $width ? "{$width}px" : '',
 	'height'                     => $height ? "{$height}px" : '',
 );
@@ -111,7 +146,13 @@ $wrapper_styles = array();
 
 if ( isset( $context['layout'] ) && 'justified' === $context['layout'] ) {
 	if ( isset( $context['justifiedRowHeight'] ) && $context['justifiedRowHeight'] ) {
-		$style['height'] = intval( $context['justifiedRowHeight'] ) . 'px';
+		$row_height                 = intval( $context['justifiedRowHeight'] );
+		$wrapper_styles['height']   = $row_height . 'px';
+		$natural_width              = isset( $media['width'] ) ? intval( $media['width'] ) : 0;
+		$natural_height             = isset( $media['height'] ) ? intval( $media['height'] ) : 0;
+		if ( $natural_width && $natural_height ) {
+			$wrapper_styles['flex-basis'] = round( $row_height * ( $natural_width / $natural_height ) ) . 'px';
+		}
 	}
 } elseif ( isset( $context['layout'] ) && 'masonry' === $context['layout'] && isset( $context['blockSpacing'] ) && $context['blockSpacing'] ) {
 	$block_gap                       = \Galleryberg\Helpers\Styling_Helpers::get_spacing_preset_css_var( $context['blockSpacing']['top'] ) ?? '16px';

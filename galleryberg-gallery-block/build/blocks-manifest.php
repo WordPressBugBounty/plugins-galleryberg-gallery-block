@@ -159,6 +159,32 @@ return array(
 			'showLightboxCaptions' => array(
 				'type' => 'boolean',
 				'default' => false
+			),
+			'galleryCaptionFontSize' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'galleryCaptionFontAppearance' => array(
+				'type' => 'object',
+				'default' => array(
+					
+				)
+			),
+			'galleryCaptionLineHeight' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'galleryCaptionLetterSpacing' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'galleryCaptionTextDecoration' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'galleryCaptionTextTransform' => array(
+				'type' => 'string',
+				'default' => ''
 			)
 		),
 		'supports' => array(
@@ -179,7 +205,13 @@ return array(
 			'galleryCaptionBackgroundGradient' => 'galleryCaptionBackgroundGradient',
 			'enableHoverEffect' => 'enableHoverEffect',
 			'hoverEffect' => 'hoverEffect',
-			'showCaptions' => 'showCaptions'
+			'showCaptions' => 'showCaptions',
+			'galleryCaptionFontSize' => 'galleryCaptionFontSize',
+			'galleryCaptionFontAppearance' => 'galleryCaptionFontAppearance',
+			'galleryCaptionLineHeight' => 'galleryCaptionLineHeight',
+			'galleryCaptionLetterSpacing' => 'galleryCaptionLetterSpacing',
+			'galleryCaptionTextDecoration' => 'galleryCaptionTextDecoration',
+			'galleryCaptionTextTransform' => 'galleryCaptionTextTransform'
 		),
 		'textdomain' => 'galleryberg-gallery-block',
 		'editorScript' => 'file:./index.js',
@@ -272,6 +304,32 @@ return array(
 				'type' => 'string',
 				'default' => null
 			),
+			'captionFontSize' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'captionFontAppearance' => array(
+				'type' => 'object',
+				'default' => array(
+					
+				)
+			),
+			'captionLineHeight' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'captionLetterSpacing' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'captionTextDecoration' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'captionTextTransform' => array(
+				'type' => 'string',
+				'default' => ''
+			),
 			'href' => array(
 				'type' => 'string',
 				'default' => ''
@@ -302,6 +360,13 @@ return array(
 				'type' => 'object',
 				'default' => array(
 					
+				)
+			),
+			'focalPoint' => array(
+				'type' => 'object',
+				'default' => array(
+					'x' => 0.5,
+					'y' => 0.5
 				)
 			),
 			'isExample' => array(
@@ -343,7 +408,13 @@ return array(
 			'galleryCaptionBackgroundGradient',
 			'enableHoverEffect',
 			'hoverEffect',
-			'showCaptions'
+			'showCaptions',
+			'galleryCaptionFontSize',
+			'galleryCaptionFontAppearance',
+			'galleryCaptionLineHeight',
+			'galleryCaptionLetterSpacing',
+			'galleryCaptionTextDecoration',
+			'galleryCaptionTextTransform'
 		),
 		'textdomain' => 'galleryberg-gallery-block',
 		'editorScript' => 'file:./index.js',
