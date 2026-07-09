@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Galleryberg Gallery Block
  * Description:       A customizable gallery block for displaying images in columns with optional cropping and spacing.
- * Version:           1.1.7
+ * Version:           1.1.8
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Imtiaz Rayhan
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'GALLERYBERG_BLOCKS_VERSION' ) ) {
-	define( 'GALLERYBERG_BLOCKS_VERSION', '1.1.7' );
+	define( 'GALLERYBERG_BLOCKS_VERSION', '1.1.8' );
 }
 
 if ( ! defined( 'GALLERYBERG_BLOCKS_DIR_PATH' ) ) {
@@ -85,6 +85,37 @@ function galleryberg_gallery_block_init() {
 	}
 }
 add_action( 'init', 'galleryberg_gallery_block_init' );
+
+/**
+ * `box-shadow` is on WordPress core's safe-CSS property allowlist, but
+ * safecss_filter_attr() still rejects the whole declaration because our preset
+ * values use `rgba( ... )` and raw parentheses are disallowed unless they belong
+ * to one of a handful of exempted functions (var(), calc(), min(), max(), etc.).
+ * rgba()/rgb()/hsla()/hsl() aren't in that list, so every shadow preset was being
+ * silently stripped from the rendered `style` attribute on the frontend.
+ *
+ * Mirror core's own var()/calc() handling: strip out balanced rgb()/rgba()/hsl()/
+ * hsla() calls before re-running the same "no \ ( & = }" safety check on what's left.
+ */
+add_filter(
+	'safecss_filter_attr_allow_css',
+	function ( $allow_css, $css_test_string ) {
+		if ( $allow_css ) {
+			return $allow_css;
+		}
+
+		$stripped = preg_replace(
+			'/\b(?:rgba?|hsla?)(\((?:[^()]|(?1))*\))/',
+			'',
+			$css_test_string
+		);
+
+		return ! preg_match( '/[\\\\(&=}]|\/\*/', $stripped );
+	},
+	10,
+	2
+);
+
 add_action( 'wp_enqueue_scripts', function() {
 	wp_register_style(
 		'galleryberg-lightbox',

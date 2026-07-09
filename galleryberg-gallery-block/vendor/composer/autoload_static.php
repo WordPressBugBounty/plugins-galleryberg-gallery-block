@@ -22,7 +22,10 @@ class ComposerStaticInit816fde491bf61952904533060742b2ec
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Galleryberg\\Admin\\Galleryberg_Admin' => __DIR__ . '/../..' . '/includes/Admin/Galleryberg_Admin.php',
+        'Galleryberg\\Helpers\\Image_Renderer' => __DIR__ . '/../..' . '/includes/Helpers/Image_Renderer.php',
         'Galleryberg\\Helpers\\Styling_Helpers' => __DIR__ . '/../..' . '/includes/Helpers/Styling_Helpers.php',
+        'Galleryberg\\Version_Control' => __DIR__ . '/../..' . '/includes/Version_Control.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

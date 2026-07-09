@@ -60,6 +60,7 @@ $style = array(
 	'border-left'                => \Galleryberg\Helpers\Styling_Helpers::get_single_side_border_value( \Galleryberg\Helpers\Styling_Helpers::get_border_css( $attributes['border'] ?? array() ), 'left' ),
 	'border-right'               => \Galleryberg\Helpers\Styling_Helpers::get_single_side_border_value( \Galleryberg\Helpers\Styling_Helpers::get_border_css( $attributes['border'] ?? array() ), 'right' ),
 	'border-bottom'              => \Galleryberg\Helpers\Styling_Helpers::get_single_side_border_value( \Galleryberg\Helpers\Styling_Helpers::get_border_css( $attributes['border'] ?? array() ), 'bottom' ),
+	'box-shadow'                 => $attributes['shadow'] ?? '',
 );
 $layout  = $attributes['layout'] ?? 'tiles';
 $columns = isset( $attributes['columns'] ) ? intval( $attributes['columns'] ) : 3;
@@ -109,9 +110,24 @@ $wrapper_args = apply_filters( 'galleryberg_pro_gallery_data_attributes', $wrapp
 
 $wrapper_attributes = get_block_wrapper_attributes( $wrapper_args );
 
+/**
+ * Allow a dynamic source (e.g. the Pro ACF integration) to supply the gallery's
+ * inner image markup instead of the editor-authored inner blocks.
+ *
+ * Return a string of `<figure>` markup to override; return null to fall back to
+ * the default inner-block `$content`.
+ *
+ * @param string|null $dynamic_content Dynamic inner markup, or null to use $content.
+ * @param array       $attributes      Gallery block attributes.
+ * @param WP_Block     $block           Block instance.
+ */
+$dynamic_content = apply_filters( 'galleryberg_gallery_dynamic_content', null, $attributes, $block );
+
+$gallery_inner = null === $dynamic_content ? $content : $dynamic_content;
+
 ?>
 
 
 <div <?php echo wp_kses_post( $wrapper_attributes ); ?>>
-	<?php echo wp_kses_post( $content ); ?>
+	<?php echo wp_kses_post( $gallery_inner ); ?>
 </div>

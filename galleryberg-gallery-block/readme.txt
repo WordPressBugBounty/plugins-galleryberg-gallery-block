@@ -2,7 +2,7 @@
 Contributors:      imtiazrayhan, dotcamp, farhanshafi
 Tags:              block, gallery, gutenberg, images, lightbox
 Tested up to:      7.0
-Stable tag:        1.1.7
+Stable tag:        1.1.8
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 6.0
@@ -156,6 +156,13 @@ Yes, the plugin generates semantic HTML with appropriate classes that you can ta
 7. Block settings panel showing customization options
 
 == Changelog ==
+
+= 1.1.8 =
+
+* NEW: Drop shadow controls for image and gallery blocks
+* PRO: NEW: Dynamic Gallery source from ACF/SCF fields
+* IMPROVE: Typography controls now hidden by default
+* IMPROVE: Settings panel now open by default
 
 = 1.1.7 =
 

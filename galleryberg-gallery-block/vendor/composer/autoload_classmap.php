@@ -7,5 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Galleryberg\\Admin\\Galleryberg_Admin' => $baseDir . '/includes/Admin/Galleryberg_Admin.php',
+    'Galleryberg\\Helpers\\Image_Renderer' => $baseDir . '/includes/Helpers/Image_Renderer.php',
     'Galleryberg\\Helpers\\Styling_Helpers' => $baseDir . '/includes/Helpers/Styling_Helpers.php',
+    'Galleryberg\\Version_Control' => $baseDir . '/includes/Version_Control.php',
 );

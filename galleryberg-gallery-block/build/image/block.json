@@ -126,6 +126,10 @@
       "type": "object",
       "default": {}
     },
+    "shadow": {
+      "type": "string",
+      "default": ""
+    },
     "focalPoint": {
       "type": "object",
       "default": {
@@ -164,6 +168,7 @@
     "layout",
     "blockSpacing",
     "imagesBorderRadius",
+    "imagesShadow",
     "galleryCaptionType",
     "galleryCaptionVisibility",
     "galleryCaptionAlignment",

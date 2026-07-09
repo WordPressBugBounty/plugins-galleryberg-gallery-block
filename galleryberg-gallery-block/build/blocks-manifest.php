@@ -120,6 +120,14 @@ return array(
 					
 				)
 			),
+			'shadow' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'imagesShadow' => array(
+				'type' => 'string',
+				'default' => ''
+			),
 			'galleryCaptionType' => array(
 				'type' => 'string',
 				'default' => 'full-overlay'
@@ -197,6 +205,7 @@ return array(
 			'justifiedRowHeight' => 'justifiedRowHeight',
 			'blockSpacing' => 'blockSpacing',
 			'imagesBorderRadius' => 'imagesBorderRadius',
+			'imagesShadow' => 'imagesShadow',
 			'galleryCaptionType' => 'galleryCaptionType',
 			'galleryCaptionVisibility' => 'galleryCaptionVisibility',
 			'galleryCaptionAlignment' => 'galleryCaptionAlignment',
@@ -362,6 +371,10 @@ return array(
 					
 				)
 			),
+			'shadow' => array(
+				'type' => 'string',
+				'default' => ''
+			),
 			'focalPoint' => array(
 				'type' => 'object',
 				'default' => array(
@@ -400,6 +413,7 @@ return array(
 			'layout',
 			'blockSpacing',
 			'imagesBorderRadius',
+			'imagesShadow',
 			'galleryCaptionType',
 			'galleryCaptionVisibility',
 			'galleryCaptionAlignment',

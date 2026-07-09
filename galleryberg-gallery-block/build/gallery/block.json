@@ -105,6 +105,14 @@
       "type": "object",
       "default": {}
     },
+    "shadow": {
+      "type": "string",
+      "default": ""
+    },
+    "imagesShadow": {
+      "type": "string",
+      "default": ""
+    },
     "galleryCaptionType": {
       "type": "string",
       "default": "full-overlay"
@@ -180,6 +188,7 @@
     "justifiedRowHeight": "justifiedRowHeight",
     "blockSpacing": "blockSpacing",
     "imagesBorderRadius": "imagesBorderRadius",
+    "imagesShadow": "imagesShadow",
     "galleryCaptionType": "galleryCaptionType",
     "galleryCaptionVisibility": "galleryCaptionVisibility",
     "galleryCaptionAlignment": "galleryCaptionAlignment",
