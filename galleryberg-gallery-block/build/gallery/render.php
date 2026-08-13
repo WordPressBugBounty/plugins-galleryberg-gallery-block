@@ -125,9 +125,26 @@ $dynamic_content = apply_filters( 'galleryberg_gallery_dynamic_content', null, $
 
 $gallery_inner = null === $dynamic_content ? $content : $dynamic_content;
 
+/**
+ * Allow the Pro plugin to wrap or transform the gallery's inner markup. The
+ * Carousel layout uses this to wrap the images in Swiper markup
+ * (`.swiper > .swiper-wrapper`) with a `data-swiper-data` config attribute and
+ * append navigation/pagination. Must return trusted HTML.
+ *
+ * @param string   $gallery_inner Inner markup (rendered image blocks or dynamic content).
+ * @param array    $attributes    Gallery block attributes.
+ * @param WP_Block $block         Block instance.
+ */
+$gallery_inner = apply_filters( 'galleryberg_gallery_inner_markup', $gallery_inner, $attributes, $block );
+
 ?>
 
 
 <div <?php echo wp_kses_post( $wrapper_attributes ); ?>>
-	<?php echo wp_kses_post( $gallery_inner ); ?>
+	<?php
+	// $gallery_inner is rendered block HTML (from core) or trusted Pro-generated
+	// carousel markup — the latter carries a data-swiper-data JSON attribute that
+	// wp_kses_post would strip — so it is output as-is.
+	echo $gallery_inner; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	?>
 </div>

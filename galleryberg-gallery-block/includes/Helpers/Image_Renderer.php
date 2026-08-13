@@ -207,6 +207,11 @@ class Image_Renderer {
 			'galleryberg-image',
 		);
 
+		// In the carousel layout each image is a Swiper slide.
+		if ( isset( $context['layout'] ) && 'carousel' === $context['layout'] ) {
+			$classes[] = 'swiper-slide';
+		}
+
 		if ( ! empty( $align ) ) {
 			$classes[] = 'galleryberg-image-' . $align;
 		}
