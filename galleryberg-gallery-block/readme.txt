@@ -2,7 +2,7 @@
 Contributors:      imtiazrayhan, dotcamp, farhanshafi
 Tags:              block, gallery, gutenberg, images, lightbox
 Tested up to:      7.0
-Stable tag:        1.1.9
+Stable tag:        1.2.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 6.0
@@ -156,6 +156,14 @@ Yes, the plugin generates semantic HTML with appropriate classes that you can ta
 7. Block settings panel showing customization options
 
 == Changelog ==
+
+= 1.2.0 =
+
+* FIX: Lightbox failing on touch devices
+* PRO: FIX: Lazy loaded images stuck on the placeholder
+* PRO: FIX: Pro deactivating when the free plugin folder is renamed
+* IMPROVE: Pro layouts now listed in the gallery layout dropdown
+* IMPROVE: Updated the Freemius SDK
 
 = 1.1.9 =
 

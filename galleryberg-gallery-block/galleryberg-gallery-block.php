@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Galleryberg Gallery Block
  * Description:       A customizable gallery block for displaying images in columns with optional cropping and spacing.
- * Version:           1.1.9
+ * Version:           1.2.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Imtiaz Rayhan
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'GALLERYBERG_BLOCKS_VERSION' ) ) {
-	define( 'GALLERYBERG_BLOCKS_VERSION', '1.1.9' );
+	define( 'GALLERYBERG_BLOCKS_VERSION', '1.2.0' );
 }
 
 if ( ! defined( 'GALLERYBERG_BLOCKS_DIR_PATH' ) ) {
