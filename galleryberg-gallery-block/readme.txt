@@ -2,7 +2,7 @@
 Contributors:      imtiazrayhan, dotcamp, farhanshafi
 Tags:              block, gallery, gutenberg, images, lightbox
 Tested up to:      7.0
-Stable tag:        1.2.0
+Stable tag:        1.2.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 6.0
@@ -156,6 +156,15 @@ Yes, the plugin generates semantic HTML with appropriate classes that you can ta
 7. Block settings panel showing customization options
 
 == Changelog ==
+
+= 1.2.1 =
+
+* NEW: Paragraph and heading blocks in image captions
+* PRO: NEW: Per-image comments in the lightbox
+* PRO: NEW: Option to include image comments in the page HTML for search engines
+* IMPROVE: Lightbox images can be opened with the keyboard
+* IMPROVE: Carousel layout added to the features page
+* PRO: FIX: Carousel flickering in the editor when settings change
 
 = 1.2.0 =
 

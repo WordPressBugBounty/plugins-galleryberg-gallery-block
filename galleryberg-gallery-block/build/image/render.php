@@ -15,5 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 echo \Galleryberg\Helpers\Image_Renderer::render(
 	$attributes,
-	isset( $block->context ) ? (array) $block->context : array()
+	isset( $block->context ) ? (array) $block->context : array(),
+	$content
 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped within the renderer.

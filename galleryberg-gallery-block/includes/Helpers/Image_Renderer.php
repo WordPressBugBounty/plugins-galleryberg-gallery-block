@@ -30,11 +30,16 @@ class Image_Renderer {
 	 * block context (layout, blockSpacing, imagesBorderRadius, imagesShadow,
 	 * galleryCaption*, enableHoverEffect, hoverEffect, showCaptions, …).
 	 *
-	 * @param array $attributes Image attributes.
-	 * @param array $context    Gallery context values.
+	 * `$caption_blocks` is the rendered caption inner blocks (paragraph/heading).
+	 * When it has text it wins; otherwise the legacy `caption` string attribute
+	 * is used, so images saved before block captions keep rendering unchanged.
+	 *
+	 * @param array  $attributes     Image attributes.
+	 * @param array  $context        Gallery context values.
+	 * @param string $caption_blocks Rendered caption inner blocks markup.
 	 * @return string Rendered HTML.
 	 */
-	public static function render( array $attributes, array $context = array() ) {
+	public static function render( array $attributes, array $context = array(), $caption_blocks = '' ) {
 		$media         = $attributes['media'] ?? array();
 		$size_slug     = $attributes['sizeSlug'] ?? '';
 		$url           = $media['sizes'][ $size_slug ]['url'] ?? $media['url'] ?? '';
@@ -135,8 +140,17 @@ class Image_Renderer {
 			$caption_classes[] = $caption_alignment_class;
 		}
 		$caption_class_attr = 'class="' . implode( ' ', $caption_classes ) . '"';
-		$caption_html       = ( $should_show_caption && $caption ) ? '<figcaption ' . $caption_class_attr . ' ' . $caption_style_attr . '>' . wp_kses_post( $caption ) . '</figcaption>' : '';
-		$id                 = isset( $media['id'] ) ? $media['id'] : '';
+
+		// Block caption first; an empty template paragraph falls back to the string.
+		$caption_content = '';
+		if ( '' !== trim( wp_strip_all_tags( (string) $caption_blocks ) ) ) {
+			$caption_content = sprintf( '<div class="galleryberg-caption-content">%s</div>', $caption_blocks );
+		} elseif ( $caption ) {
+			$caption_content = $caption;
+		}
+		$caption_html = ( $should_show_caption && $caption_content ) ? sprintf( '<figcaption %1$s %2$s>%3$s</figcaption>', $caption_class_attr, $caption_style_attr, wp_kses_post( $caption_content ) ) : '';
+
+		$id = isset( $media['id'] ) ? $media['id'] : '';
 
 		$aspect_ratio  = ! empty( $attributes['aspectRatio'] ) ? esc_attr( $attributes['aspectRatio'] ) : '';
 		$scale         = ! empty( $attributes['scale'] ) ? esc_attr( $attributes['scale'] ) : '';

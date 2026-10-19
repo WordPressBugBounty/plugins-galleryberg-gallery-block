@@ -154,8 +154,18 @@ class Galleryberg_Admin {
 					'is_pro'      => true,
 				),
 				array(
+					'title'       => __( 'Carousel Layout (PRO)', 'galleryberg-gallery-block' ),
+					'description' => __( 'Turn your gallery into a sliding carousel with autoplay, navigation arrows, and pagination dots.', 'galleryberg-gallery-block' ),
+					'is_pro'      => true,
+				),
+				array(
+					'title'       => __( 'Image Comments (PRO)', 'galleryberg-gallery-block' ),
+					'description' => __( 'Let visitors comment on each image in the lightbox, using WordPress comments with moderation and spam protection.', 'galleryberg-gallery-block' ),
+					'is_pro'      => true,
+				),
+				array(
 					'title'       => __( 'More Coming Soon (PRO)', 'galleryberg-gallery-block' ),
-					'description' => __( 'Get early access to upcoming premium layouts and advanced controls.', 'galleryberg-gallery-block' ),
+					'description' => __( 'Pagination, filtering, and more premium features are on the way. Upgrade now and get every new addition at no extra cost.', 'galleryberg-gallery-block' ),
 					'is_pro'      => true,
 				),
 			),

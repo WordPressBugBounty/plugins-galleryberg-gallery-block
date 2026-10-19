@@ -103,6 +103,11 @@ if ( $lightbox ) {
 	$wrapper_args['data-zoomable']           = empty( $attributes['zoomable'] ) ? 'false' : 'true';
 	$wrapper_args['data-draggable']          = empty( $attributes['draggable'] ) ? 'false' : 'true';
 	$wrapper_args['data-show-lightbox-captions'] = empty( $attributes['showLightboxCaptions'] ) ? 'false' : 'true';
+	// Accessible names for the keyboard lightbox triggers added by view.js
+	// (same wording as the core Image block's "Enlarge on click").
+	$wrapper_args['data-enlarge-label'] = __( 'Enlarge', 'galleryberg-gallery-block' );
+	/* translators: %s: Image alt text. */
+	$wrapper_args['data-enlarge-label-alt'] = __( 'Enlarge: %s', 'galleryberg-gallery-block' );
 }
 
 // Apply Pro data attributes filter
